@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'information',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -77,8 +78,15 @@ WSGI_APPLICATION = 'information_release.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'information_release',                      # Or path to database file if using sqlite3.
+        'USER': 'yangzhijiang',
+        'PASSWORD': 'huifenqi123',
+        'HOST': '127.0.0.1',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        'PORT': '3306',                      # Set to empty string for default.
+        'OPTIONS': {
+            'init_command': 'SET default_storage_engine=INNODB;SET foreign_key_checks = 0;',
+        },
     }
 }
 
@@ -107,7 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'UTC+8'
 
 USE_I18N = True
 
