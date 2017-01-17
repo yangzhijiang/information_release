@@ -20,25 +20,14 @@ class AuditHistory(models.Model):
     comment = models.CharField(max_length=255, blank=True, null=True)
     user_id = models.BigIntegerField(blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'audit_history'
+    # class Meta:
+    #     managed = False
+    #     db_table = 'audit_history'
 
 
 class Information(models.Model):
 
-    CITYS = ((1,'神池'),
-             (2, '忻州'),
-             (3, '朔州'),
-             (4, '宁武'),
-             (5, '五寨'),
-             (6, '原平'),
-             (7, '定襄'),
-             (8, '静乐'),
-             (9, '偏关'),
-             (10, '河曲'),
-             (11, '保德'),
-             )
+
 
     id = models.BigIntegerField(primary_key=True)
     create_time = models.DateTimeField()
@@ -54,15 +43,15 @@ class Information(models.Model):
     contacts = models.CharField(max_length=20)
     contacts_mobile = models.CharField(max_length=20, blank=True, null=True)
     pics_id = models.BigIntegerField(blank=True, null=True)
-    city_id = models.BigIntegerField(choices=CITYS)
-
+    city_id = models.BigIntegerField()
+    # choices = CITYS
     # ...
-    def __str__(self):  # __unicode__ on Python 2
-        return self.title
+    # def __str__(self):  # __unicode__ on Python 2
+    #     return self.title
 
-    class Meta:
-        managed = False
-        db_table = 'information'
+    # class Meta:
+    #     managed = False
+    #     db_table = 'information'
 
 
 class InformationPic(models.Model):
@@ -71,9 +60,9 @@ class InformationPic(models.Model):
     information_id = models.BigIntegerField()
     state = models.IntegerField()
 
-    class Meta:
-        managed = False
-        db_table = 'information_pic'
+    # class Meta:
+    #     managed = False
+    #     db_table = 'information_pic'
 
 
 class User(models.Model):
@@ -85,6 +74,6 @@ class User(models.Model):
     openid = models.CharField(max_length=255)
     union_id = models.CharField(max_length=255, blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'user'
+    # class Meta:
+    #     managed = False
+    #     db_table = 'user'
