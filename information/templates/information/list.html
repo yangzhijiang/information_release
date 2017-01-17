@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{#<html lang="en">#}
+<head>
+    <meta charset="UTF-8">
+    <title>消息列表</title>
+</head>
+<body>
+{% if latest_question_list %}
+    <ul>
+    {% for information in latest_question_list %}
+        <li><a href="/information/{{ information.id }}/">{{ information.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No information are available.</p>
+{% endif %}
+</body>
+</html>
